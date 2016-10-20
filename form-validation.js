@@ -76,9 +76,6 @@ else if (passEntered .length < 6 ) {
 }
 function register () {
   userEntered = document.getElementById("user").value;
-//if (document.getElementById("usernameGroup").classlist.search("has-success") > -1 &&
-//document.getElementById("passwordGroup").classlist.search ("has-success") > -1)
-
 window.alert("Your username is: " + userEntered + ". " + "Your password is: "
   + passEntered + ".")
 
