@@ -1,15 +1,18 @@
-function validate(){
+var userEntered = document.getElementById("user").value;
+var passEntered = document.getElementById("pass").value;
+var space= userEntered.indexOf(" ");
+
+function validateUsername(){
+  userEntered = document.getElementById("user").value;
   //Grab the user's input and store in variables
-  var userEntered = document.getElementById("user").value;
-  var passEntered = document.getElementById("pass").value;
-  var space= userEntered.indexOf(" ");
   //Show message that there is an error with the username...
-  if (userEntered .length < 6) {
+  if (userEntered.length < 6) {var userEntered = document.getElementById("user").value;
   document.getElementById("usernameError").innerHTML=
   "Your username must be at least 6 characters long.";
   document.getElementById("usernameError").classList.remove("hidden-message");
   document.getElementById("usernameError").classList.add("shown-message");
   //Turn the username items red
+  document.getElementById("usernameGroup").classList.remove("has-success");
   document.getElementById("usernameGroup").classList.add("has-error");}
 else if (space > -1) {
 document.getElementById("usernameError").innerHTML=
@@ -17,14 +20,18 @@ document.getElementById("usernameError").innerHTML=
 document.getElementById("usernameError").classList.remove("hidden-message");
 document.getElementById("usernameError").classList.add("shown-message");
 //Turn the username items red
+document.getElementById("usernameGroup").classList.remove("has-success");
 document.getElementById("usernameGroup").classList.add("has-error");}
 
-else {document.getElementById("usernameGroup").classList.add("has-success");
+else {
 document.getElementById("usernameGroup").classList.remove("has-error");
+document.getElementById("usernameGroup").classList.add("has-success");
 document.getElementById("usernameError").innerHTML= " ";
 }
+}
 
-
+function validatePassword() {
+  passEntered = document.getElementById("pass").value;
 if (passEntered == "password" || passEntered =="Password"){
   //Show message that there is an error with the password...
   document.getElementById("passwordError").innerHTML=
@@ -32,7 +39,9 @@ if (passEntered == "password" || passEntered =="Password"){
   document.getElementById("passwordError").classList.remove("hidden-message");
   document.getElementById("passwordError").classList.add("shown-message");
   //Turn the password items red
-  document.getElementById("passwordGroup").classList.add("has-error");}
+  document.getElementById("passwordGroup").classList.remove("has-success");
+  document.getElementById("passwordGroup").classList.add("has-error");
+}
 else if (passEntered == userEntered) {
   //Show message that there is an error with the password...
   document.getElementById("passwordError").innerHTML=
@@ -40,6 +49,7 @@ else if (passEntered == userEntered) {
   document.getElementById("passwordError").classList.remove("hidden-message");
   document.getElementById("passwordError").classList.add("shown-message");
   //Turn the password items red
+  document.getElementById("passwordGroup").classList.remove("has-success");
   document.getElementById("passwordGroup").classList.add("has-error");}
 else if (passEntered .length < 6 ) {
   //Show message that there is an error with the password...
@@ -48,6 +58,7 @@ else if (passEntered .length < 6 ) {
   document.getElementById("passwordError").classList.remove("hidden-message");
   document.getElementById("passwordError").classList.add("shown-message");
   //Turn the password items red
+  document.getElementById("passwordGroup").classList.remove("has-success");
   document.getElementById("passwordGroup").classList.add("has-error");}
   else if (passEntered .length > 20 ) {
     //Show message that there is an error with the password...
@@ -56,8 +67,19 @@ else if (passEntered .length < 6 ) {
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
     //Turn the password items red
+    document.getElementById("passwordGroup").classList.remove("has-success");
     document.getElementById("passwordGroup").classList.add("has-error");}
-  else {document.getElementById("passwordGroup").classList.add("has-success");
+  else {
   document.getElementById("passwordGroup").classList.remove("has-error");
+  document.getElementById("passwordGroup").classList.add("has-success");
   document.getElementById("passwordError").innerHTML=" "}
+}
+function register () {
+  userEntered = document.getElementById("user").value;
+//if (document.getElementById("usernameGroup").classlist.search("has-success") > -1 &&
+//document.getElementById("passwordGroup").classlist.search ("has-success") > -1)
+
+window.alert("Your username is: " + userEntered + ". " + "Your password is: "
+  + passEntered + ".")
+
 }
